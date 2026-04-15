@@ -95,51 +95,51 @@
     
     <a-assets>
       <!-- MINECRAFT - Espada do Minecraft -->
-      <a-asset-item id="espadaMinecraft" src="./minecraft_swords.glb"></a-asset-item>
+      <a-asset-item id="espadaMinecraft" src="./models/diamond_minecraft_sword.glb"></a-asset-item>
       
       <!-- SUPER MARIO - Flor de Fogo -->
-      <a-asset-item id="florFogo" src="./fire_flower_super_mario_bros.glb"></a-asset-item>
+      <a-asset-item id="florFogo" src="./models/fire_flower_super_mario_bros.glb"></a-asset-item>
       
       <!-- ZELDA - Master Sword -->
-      <a-asset-item id="masterSword" src="./???"></a-asset-item>
+      <a-asset-item id="masterSword"></a-asset-item>
       
       <!-- KINGDOM HEARTS - Chave (Kingdom Key) -->
-      <a-asset-item id="kingdomKey" src="./kingdom_key.glb></a-asset-item>
+      <a-asset-item id="kingdomKey" src="./models/kingdom_key.glb"></a-asset-item>
       
-      <!-- HOLLOW KNIGHT - Ferrão -- >
-      <a-asset-item id="ferraoHollow" src="./???"></a-asset-item>
+      <!-- HOLLOW KNIGHT - Ferrão -->
+      <a-asset-item id="ferraoHollow"></a-asset-item>
       
       <!-- GOD OF WAR - Laminas do Caos -->
-      <a-asset-item id="laminasCaos" src="./???"></a-asset-item>
+      <a-asset-item id="laminasCaos"></a-asset-item>
     </a-assets>
 
-    <!-- MINECRAFT - Marcador A (pattern-letterA.patt) -->
-    <a-marker id="marker-minecraft" type="pattern" url="./pattern-letterA.patt">
-      <a-entity id="model-minecraft" gltf-model="#espadaMinecraft" rotation="-90 0 0" scale="0.5 0.5 0.5"></a-entity>
+    <!-- MINECRAFT - Marcador (pattern-minecraftSword.patt) -->
+    <a-marker id="marker-minecraft" type="pattern" url="./pattern-minecraftSword.patt">
+      <a-entity id="model-minecraft" gltf-model="#espadaMinecraft" rotation="-90 0 0" scale="0.08 0.08 0.08"></a-entity>
     </a-marker>
 
-    <!-- SUPER MARIO - Marcador B (pattern-letterB.patt) -->
-    <a-marker id="marker-mario" type="pattern" url="./pattern-letterB.patt">
-      <a-entity id="model-mario" gltf-model="#florFogo" rotation="-90 0 0" scale="0.5 0.5 0.5"></a-entity>
+    <!-- SUPER MARIO - Marcador (pattern-flordeFogo.patt) -->
+    <a-marker id="marker-mario" type="pattern" url="./pattern-flordeFogo.patt">
+      <a-entity id="model-mario" gltf-model="#florFogo" rotation="-90 0 0" scale="0.01 0.01 0.01"></a-entity>
     </a-marker>
 
-    <!-- ZELDA - Marcador C (pattern-letterC.patt) -->
-    <a-marker id="marker-zelda" type="pattern" url="./pattern-letterC.patt">
+    <!-- ZELDA - Marcador (pattern-MasterSword.patt) -->
+    <a-marker id="marker-zelda" type="pattern" url="./pattern-MasterSword.patt">
       <a-entity id="model-zelda" gltf-model="#masterSword" rotation="-90 0 0" scale="0.5 0.5 0.5"></a-entity>
     </a-marker>
 
-    <!-- KINGDOM HEARTS - Marcador E (pattern-letterE.patt) -->
-    <a-marker id="marker-kh" type="pattern" url="./pattern-letterE.patt">
+    <!-- KINGDOM HEARTS - Marcador (chaveKH.patt) -->
+    <a-marker id="marker-kh" type="pattern" url="./chaveKH.patt">
       <a-entity id="model-kh" gltf-model="#kingdomKey" rotation="-90 0 0" scale="0.5 0.5 0.5"></a-entity>
     </a-marker>
 
-    <!-- HOLLOW KNIGHT - Marcador F (pattern-letterF.patt) -->
-    <a-marker id="marker-hollow" type="pattern" url="./pattern-letterF.patt">
+    <!-- HOLLOW KNIGHT - Marcador (pattern-ferrao.patt) -->
+    <a-marker id="marker-hollow" type="pattern" url="./pattern-ferrao.patt">
       <a-entity id="model-hollow" gltf-model="#ferraoHollow" rotation="-90 0 0" scale="0.5 0.5 0.5"></a-entity>
     </a-marker>
 
-    <!-- GOD OF WAR - Marcador D (pattern-letterD.patt) -->
-    <a-marker id="marker-gow" type="pattern" url="./pattern-letterD.patt">
+    <!-- GOD OF WAR - Marcador (pattern-LaminasCaos.patt) -->
+    <a-marker id="marker-gow" type="pattern" url="./pattern-LaminasCaos.patt">
       <a-entity id="model-gow" gltf-model="#laminasCaos" rotation="-90 0 0" scale="0.5 0.5 0.5"></a-entity>
     </a-marker>
 
@@ -208,37 +208,37 @@
     const markerConfig = [
       {
         name: ' Minecraft - Espada',
-        markerUrl: './pattern-letterA.patt',
+        markerUrl: './pattern-minecraftSword.patt',
         modelId: 'model-minecraft',
-        state: { scale: 0.5, pos: { x: 0, y: 0, z: 0 }, rot: { x: -90, y: 0, z: 0 } }
+        state: { scale: 0.08, pos: { x: 0, y: 0, z: 0 }, rot: { x: -90, y: 0, z: 0 } }
       },
       {
         name: ' Super Mario - Flor de Fogo',
-        markerUrl: './pattern-letterB.patt',
+        markerUrl: './pattern-flordeFogo.patt',
         modelId: 'model-mario',
-        state: { scale: 0.5, pos: { x: 0, y: 0, z: 0 }, rot: { x: -90, y: 0, z: 0 } }
+        state: { scale: 0.01, pos: { x: 0, y: 0, z: 0 }, rot: { x: -90, y: 0, z: 0 } }
       },
       {
         name: ' Zelda - Master Sword',
-        markerUrl: './pattern-letterC.patt',
+        markerUrl: './pattern-MasterSword.patt',
         modelId: 'model-zelda',
         state: { scale: 0.5, pos: { x: 0, y: 0, z: 0 }, rot: { x: -90, y: 0, z: 0 } }
       },
       {
         name: ' Kingdom Hearts - Chave',
-        markerUrl: './pattern-letterE.patt',
+        markerUrl: './chaveKH.patt',
         modelId: 'model-kh',
         state: { scale: 0.5, pos: { x: 0, y: 0, z: 0 }, rot: { x: -90, y: 0, z: 0 } }
       },
       {
         name: ' Hollow Knight - Ferrão',
-        markerUrl: './pattern-letterF.patt',
+        markerUrl: './pattern-ferrao.patt',
         modelId: 'model-hollow',
         state: { scale: 0.5, pos: { x: 0, y: 0, z: 0 }, rot: { x: -90, y: 0, z: 0 } }
       },
       {
         name: ' God of War - Laminas do Caos',
-        markerUrl: './pattern-letterD.patt',
+        markerUrl: './pattern-LaminasCaos.patt',
         modelId: 'model-gow',
         state: { scale: 0.5, pos: { x: 0, y: 0, z: 0 }, rot: { x: -90, y: 0, z: 0 } }
       }
@@ -253,6 +253,19 @@
       if (markerEl && modelEl) {
         m.el = markerEl;
         m.model = modelEl;
+
+        // Mantem o estado JS e o estado visual do modelo sempre sincronizados.
+        m.model.setAttribute('scale', `${m.state.scale} ${m.state.scale} ${m.state.scale}`);
+        m.model.setAttribute('position', `${m.state.pos.x} ${m.state.pos.y} ${m.state.pos.z}`);
+        m.model.setAttribute('rotation', `${m.state.rot.x} ${m.state.rot.y} ${m.state.rot.z}`);
+
+        m.model.addEventListener('model-loaded', () => {
+          console.log(`[AR] Modelo carregado: ${m.name}`);
+        });
+
+        m.model.addEventListener('model-error', (ev) => {
+          console.error(`[AR] Erro ao carregar modelo: ${m.name}`, ev.detail);
+        });
         
         markerEl.addEventListener('markerFound', () => {
           activeMarker = m;
@@ -276,10 +289,10 @@
     });
 
     function syncDisplays(state) {
-      document.getElementById('scaleVal').textContent = state.scale.toFixed(1);
-      document.getElementById('posXVal').textContent = state.pos.x.toFixed(1);
-      document.getElementById('posYVal').textContent = state.pos.y.toFixed(1);
-      document.getElementById('posZVal').textContent = state.pos.z.toFixed(1);
+      document.getElementById('scaleVal').textContent = state.scale.toFixed(2);
+      document.getElementById('posXVal').textContent = state.pos.x.toFixed(2);
+      document.getElementById('posYVal').textContent = state.pos.y.toFixed(2);
+      document.getElementById('posZVal').textContent = state.pos.z.toFixed(2);
       document.getElementById('rotXVal').textContent = state.rot.x;
       document.getElementById('rotYVal').textContent = state.rot.y;
       document.getElementById('rotZVal').textContent = state.rot.z;
