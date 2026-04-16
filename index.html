@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <title>AR - Espadas dos Games</title>
+  <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js@3.4.5/aframe/build/aframe-ar.min.js"></script>
+  <style>
+    * {
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+    #controls { 
+      display: none; 
+      position: fixed; 
+      z-index: 999; 
+      bottom: 20px; 
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(10px);
+      padding: 15px 20px;
+      border-radius: 20px;
+      color: white;
+      font-family: Arial, sans-serif;
+      min-width: 280px;
+      text-align: center;
+      border: 1px solid rgba(255,255,255,0.2);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
+    #controls.visible { display: block; }
+    #active-marker-label {
+      font-weight: bold;
+      margin-bottom: 12px;
+      font-size: 14px;
+      color: #ffd700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .control-group {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 8px 0;
+      gap: 10px;
+    }
+    .control-group span:first-child {
+      width: 50px;
+      font-size: 12px;
+      text-align: left;
+    }
+    .control-group span.value {
+      width: 35px;
+      text-align: center;
+      font-weight: bold;
+      color: #ffd700;
+    }
+    button {
+      background: #333;
+      border: none;
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    button:active {
+      background: #ffd700;
+      color: #000;
+      transform: scale(0.95);
+    }
+    .control-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid rgba(255,255,255,0.2);
+    }
+    h4 {
+      margin: 0 0 10px 0;
+      font-size: 14px;
+      color: #ffd700;
+    }
+  </style>
+</head>
+<body style='margin: 0px; overflow: hidden; background: black;'>
+  
+  <a-scene 
+    embedded 
+    arjs="sourceType: webcam; debugUIEnabled: false;" 
+    renderer="logarithmicDepthBuffer: true; precision: high; antialias: true;">
+    
+    <a-assets>
+      <a-asset-item id="espadaMinecraft" src="./models/diamond_minecraft_sword.glb"></a-asset-item>
+      <a-asset-item id="florFogo" src="./models/fire_flower_super_mario_bros.glb"></a-asset-item>
+      <a-asset-item id="masterSword" src="./models/link_master_sword.glb"></a-asset-item>
+      <a-asset-item id="kingdomKey" src="./models/kingdom_key.glb"></a-asset-item>
+      <a-asset-item id="ferraoHollow" src="./models/hollow_knight_-_pure_nail.glb"></a-asset-item>
+      <a-asset-item id="laminasCaos" src="./models/the_god_of_war_-_blades_of_chaos.glb"></a-asset-item>
+    </a-assets>
+
+    <a-marker id="marker-minecraft" type="pattern" url="./pattern-minecraftSword.patt" smooth="true" smoothCount="10" smoothTolerance="0.01">
+      <a-entity id="model-minecraft" gltf-model="#espadaMinecraft" rotation="-90 0 0" scale="0.1 0.1 0.1"></a-entity>
+    </a-marker>
+
+    <a-marker id="marker-mario" type="pattern" url="./pattern-flordeFogo.patt" smooth="true" smoothCount="10" smoothTolerance="0.01">
+      <a-entity id="model-mario" gltf-model="#florFogo" rotation="-90 0 0" scale="0.001 0.001 0.001"></a-entity>
+    </a-marker>
+
+    <a-marker id="marker-zelda" type="pattern" url="./pattern-MasterSword.patt" smooth="true" smoothCount="10" smoothTolerance="0.01">
+      <a-entity id="model-zelda" gltf-model="#masterSword" rotation="90 0 0" scale="0.10 0.10 0.10"></a-entity>
+    </a-marker>
+
+    <a-marker id="marker-kh" type="pattern" url="./chaveKH.patt" smooth="true" smoothCount="10" smoothTolerance="0.01">
+      <a-entity id="model-kh" gltf-model="#kingdomKey" rotation="-90 0 0" scale="0.5 0.5 0.5"></a-entity>
+    </a-marker>
+
+    <a-marker id="marker-hollow" type="pattern" url="./pattern-ferrao.patt" smooth="true" smoothCount="10" smoothTolerance="0.01">
+      <a-entity id="model-hollow" gltf-model="#ferraoHollow" rotation="-90 0 0" scale="0.001 0.001 0.001"></a-entity>
+    </a-marker>
+
+    <a-marker id="marker-gow" type="pattern" url="./pattern-LaminasCaos.patt" smooth="true" smoothCount="10" smoothTolerance="0.01">
+      <a-entity id="model-gow" gltf-model="#laminasCaos" rotation="-90 0 0" scale="0.5 0.5 0.5"></a-entity>
+    </a-marker>
+
+<a-entity light="type: ambient; color: #ffffff; intensity: 3.0"></a-entity>
+    
+    <a-entity light="type: directional; color: #ffffff; intensity: 1.5" position="0 10 0"></a-entity>
+
+    <a-entity camera>
+      <a-entity light="type: directional; color: #ffffff; intensity: 2.0" position="0 0 1"></a-entity>
+      <a-entity light="type: directional; color: #ffffff; intensity: 1.0" position="1 1 0"></a-entity>
+    </a-entity>
+  </a-scene>
+
+  <div id="controls">
+    <div id="active-marker-label">—</div>
+    
+    <div class="control-group">
+      <span> Escala</span>
+      <button onclick="changeScale(-0.1)">−</button>
+      <span id="scaleVal" class="value">1.0</span>
+      <button onclick="changeScale(0.1)">+</button>
+    </div>
+    
+    <div class="control-row">
+      <div class="control-group">
+        <span> Pos X</span>
+        <button onclick="changePos('x', -0.05)">−</button>
+        <span id="posXVal" class="value">0.0</span>
+        <button onclick="changePos('x', 0.05)">+</button>
+      </div>
+      <div class="control-group">
+        <span>Pos Y</span>
+        <button onclick="changePos('y', -0.05)">−</button>
+        <span id="posYVal" class="value">0.0</span>
+        <button onclick="changePos('y', 0.05)">+</button>
+      </div>
+      <div class="control-group">
+        <span> Pos Z</span>
+        <button onclick="changePos('z', -0.05)">−</button>
+        <span id="posZVal" class="value">0.0</span>
+        <button onclick="changePos('z', 0.05)">+</button>
+      </div>
+    </div>
+    
+    <div class="control-row">
+      <div class="control-group">
+        <span> Rot X</span>
+        <button onclick="changeRot('x', -15)">−</button>
+        <span id="rotXVal" class="value">-90</span>
+        <button onclick="changeRot('x', 15)">+</button>
+      </div>
+      <div class="control-group">
+        <span> Rot Y</span>
+        <button onclick="changeRot('y', -15)">−</button>
+        <span id="rotYVal" class="value">0</span>
+        <button onclick="changeRot('y', 15)">+</button>
+      </div>
+      <div class="control-group">
+        <span> Rot Z</span>
+        <button onclick="changeRot('z', -15)">−</button>
+        <span id="rotZVal" class="value">0</span>
+        <button onclick="changeRot('z', 15)">+</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const controls = document.getElementById('controls');
+    const activeMarkerLabel = document.getElementById('active-marker-label');
+
+    const markerConfig = [
+      {
+        name: ' Minecraft - Espada',
+        markerUrl: './pattern-minecraftSword.patt',
+        modelId: 'model-minecraft',
+        state: { scale: 0.1, pos: { x: 0, y: 0, z: 0 }, rot: { x: -90, y: 0, z: 0 } }
+      },
+      {
+        name: ' Super Mario - Flor de Fogo',
+        markerUrl: './pattern-flordeFogo.patt',
+        modelId: 'model-mario',
+        state: { scale: 0.01, pos: { x: 0, y: 0, z: 0 }, rot: { x: -90, y: 0, z: 0 } }
+      },
+      {
+        name: ' Zelda - Master Sword',
+        markerUrl: './pattern-MasterSword.patt',
+        modelId: 'model-zelda',
+        state: { scale: 0.70, pos: { x: 0, y: 0, z: 0 }, rot: { x: -15, y: 0, z: 0 } }
+      },
+      {
+        name: ' Kingdom Hearts - Chave',
+        markerUrl: './chaveKH.patt',
+        modelId: 'model-kh',
+        state: { scale: 0.5, pos: { x: 0, y: 0, z: 0 }, rot: { x: -90, y: 0, z: 0 } }
+      },
+      {
+        name: ' Hollow Knight - Ferrão',
+        markerUrl: './pattern-ferrao.patt',
+        modelId: 'model-hollow',
+        state: { scale: 0.01, pos: { x: 0, y: 0, z: 0 }, rot: { x: -90, y: 0, z: 0 } }
+      },
+      {
+        name: ' God of War - Laminas do Caos',
+        markerUrl: './pattern-LaminasCaos.patt',
+        modelId: 'model-gow',
+        state: { scale: 0.5, pos: { x: 0, y: -3, z: 1.85 }, rot: { x: -90, y: 0, z: 0 } }
+      }
+    ];
+
+    let activeMarker = null;
+
+    markerConfig.forEach(m => {
+      const markerEl = document.querySelector(`[url="${m.markerUrl}"]`);
+      const modelEl = document.getElementById(m.modelId);
+      
+      if (markerEl && modelEl) {
+        m.el = markerEl;
+        m.model = modelEl;
+
+        m.model.setAttribute('scale', `${m.state.scale} ${m.state.scale} ${m.state.scale}`);
+        m.model.setAttribute('position', `${m.state.pos.x} ${m.state.pos.y} ${m.state.pos.z}`);
+        m.model.setAttribute('rotation', `${m.state.rot.x} ${m.state.rot.y} ${m.state.rot.z}`);
+
+        markerEl.addEventListener('markerFound', () => {
+          activeMarker = m;
+          activeMarkerLabel.innerHTML = `${m.name}`;
+          syncDisplays(m.state);
+          controls.classList.add('visible');
+        });
+
+        markerEl.addEventListener('markerLost', () => {
+          if (activeMarker === m) {
+            activeMarker = null;
+            controls.classList.remove('visible');
+            activeMarkerLabel.innerHTML = '—';
+          }
+        });
+      }
+    });
+
+    function syncDisplays(state) {
+      document.getElementById('scaleVal').textContent = state.scale.toFixed(2);
+      document.getElementById('posXVal').textContent = state.pos.x.toFixed(2);
+      document.getElementById('posYVal').textContent = state.pos.y.toFixed(2);
+      document.getElementById('posZVal').textContent = state.pos.z.toFixed(2);
+      document.getElementById('rotXVal').textContent = state.rot.x;
+      document.getElementById('rotYVal').textContent = state.rot.y;
+      document.getElementById('rotZVal').textContent = state.rot.z;
+    }
+
+    function changeScale(delta) {
+      if (!activeMarker) return;
+      const s = activeMarker.state;
+      s.scale = Math.max(0.1, parseFloat((s.scale + delta).toFixed(1)));
+      activeMarker.model.setAttribute('scale', `${s.scale} ${s.scale} ${s.scale}`);
+      document.getElementById('scaleVal').textContent = s.scale.toFixed(1);
+    }
+
+    function changePos(axis, delta) {
+      if (!activeMarker) return;
+      const p = activeMarker.state.pos;
+      p[axis] = parseFloat((p[axis] + delta).toFixed(2));
+      activeMarker.model.setAttribute('position', `${p.x} ${p.y} ${p.z}`);
+      document.getElementById(`pos${axis.toUpperCase()}Val`).textContent = p[axis].toFixed(2);
+    }
+
+    function changeRot(axis, delta) {
+      if (!activeMarker) return;
+      const r = activeMarker.state.rot;
+      r[axis] = (r[axis] + delta) % 360;
+      activeMarker.model.setAttribute('rotation', `${r.x} ${r.y} ${r.z}`);
+      document.getElementById(`rot${axis.toUpperCase()}Val`).textContent = r[axis];
+    }
+  </script>
+</body>
+</html>
