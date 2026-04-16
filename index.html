@@ -163,7 +163,7 @@
 </head>
 <body style='margin: 0px; overflow: hidden; background: black;'>
   
-  <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;">
+  <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;" renderer="logarithmicDepthBuffer: true; colorManagement: true;">
     
     <a-assets>
       <!-- MINECRAFT - Espada do Minecraft -->
@@ -189,8 +189,8 @@
     <a-marker id="marker-minecraft" type="pattern" url="./pattern-minecraftSword.patt">
       <a-entity id="model-minecraft" gltf-model="#espadaMinecraft" rotation="-90 0 0" scale="0.1 0.1 0.1"></a-entity>
       <a-entity position="0 0 -1.5" rotation="-90 0 0">
-        <a-plane width="3" height="1.6" color="#000" opacity="0.8"></a-plane>
-        <a-text value="MINECRAFT - ESPADA\nOrigem: Minecraft\n\nA Espada de Diamante foi por muito tempo a arma\nmais iconica e cobicada do Minecraft. E essencial\npara derrotar os monstros e o Ender Dragon.\n\nCuriosidade: Hoje ela pode ser aprimorada para\nNetherite e resistir ao fogo!" color="#ffd700" width="2.8" wrap-count="42" align="center" position="0 0 0.05"></a-text>
+        <a-plane width="3" height="1.6" material="shader: flat; color: #000000; transparent: true; opacity: 0.8; depthTest: false; depthWrite: false;"></a-plane>
+        <a-text material="shader: flat; color: #ffd700; depthTest: false; depthWrite: false;" value="MINECRAFT - ESPADA\nOrigem: Minecraft\n\nA Espada de Diamante foi por muito tempo a arma\nmais iconica e cobicada do Minecraft. E essencial\npara derrotar os monstros e o Ender Dragon.\n\nCuriosidade: Hoje ela pode ser aprimorada para\nNetherite e resistir ao fogo!" color="#ffd700" width="2.8" wrap-count="42" align="center" position="0 0 0.05"></a-text>
       </a-entity>
     </a-marker>
 
@@ -198,8 +198,8 @@
     <a-marker id="marker-mario" type="pattern" url="./pattern-flordeFogo.patt">
       <a-entity id="model-mario" gltf-model="#florFogo" rotation="-90 0 0" scale="0.001 0.001 0.001"></a-entity>
       <a-entity position="0 0 -1.5" rotation="-90 0 0">
-        <a-plane width="3" height="1.6" color="#000" opacity="0.8"></a-plane>
-        <a-text value="SUPER MARIO - FLOR DE FOGO\nOrigem: Super Mario Bros\n\nA Flor de Fogo transforma o Mario em Fire Mario,\nconcedendo a habilidade de lancar bolas de\nfogo que quicam pelo cenario.\n\nCuriosidade: As bolas de fogo podem derrotar\ninimigos imunes aos pulos e rendem moedas!" color="#ffd700" width="2.8" wrap-count="42" align="center" position="0 0 0.05"></a-text>
+        <a-plane width="3" height="1.6" material="shader: flat; color: #000000; transparent: true; opacity: 0.8; depthTest: false; depthWrite: false;"></a-plane>
+        <a-text material="shader: flat; color: #ffd700; depthTest: false; depthWrite: false;" value="SUPER MARIO - FLOR DE FOGO\nOrigem: Super Mario Bros\n\nA Flor de Fogo transforma o Mario em Fire Mario,\nconcedendo a habilidade de lancar bolas de\nfogo que quicam pelo cenario.\n\nCuriosidade: As bolas de fogo podem derrotar\ninimigos imunes aos pulos e rendem moedas!" color="#ffd700" width="2.8" wrap-count="42" align="center" position="0 0 0.05"></a-text>
       </a-entity>
     </a-marker>
 
@@ -207,8 +207,8 @@
     <a-marker id="marker-zelda" type="pattern" url="./pattern-MasterSword.patt">
       <a-entity id="model-zelda" gltf-model="#masterSword" rotation="90 0 0" scale="0.10 0.10 0.10"></a-entity>
       <a-entity position="0 0 -1.5" rotation="-90 0 0">
-        <a-plane width="3" height="1.6" color="#000" opacity="0.8"></a-plane>
-        <a-text value="ZELDA - MASTER SWORD\nOrigem: A Link to the Past\n\nConhecida como 'Lamina que Bane o Mal', a Master\nSword e a arma sagrada capaz de repelir magias\nmalignas e a unica capaz de derrotar Ganon.\n\nCuriosidade: Em 'Breath of the Wild', ela exige que\nLink tenha coracoes especificos para puxa-la." color="#ffd700" width="2.8" wrap-count="42" align="center" position="0 0 0.05"></a-text>
+        <a-plane width="3" height="1.6" material="shader: flat; color: #000000; transparent: true; opacity: 0.8; depthTest: false; depthWrite: false;"></a-plane>
+        <a-text material="shader: flat; color: #ffd700; depthTest: false; depthWrite: false;" value="ZELDA - MASTER SWORD\nOrigem: A Link to the Past\n\nConhecida como 'Lamina que Bane o Mal', a Master\nSword e a arma sagrada capaz de repelir magias\nmalignas e a unica capaz de derrotar Ganon.\n\nCuriosidade: Em 'Breath of the Wild', ela exige que\nLink tenha coracoes especificos para puxa-la." color="#ffd700" width="2.8" wrap-count="42" align="center" position="0 0 0.05"></a-text>
       </a-entity>
     </a-marker>
 
@@ -216,8 +216,8 @@
     <a-marker id="marker-kh" type="pattern" url="./chaveKH.patt">
       <a-entity id="model-kh" gltf-model="#kingdomKey" rotation="-90 0 0" scale="0.5 0.5 0.5"></a-entity>
       <a-entity position="0 0 -1.5" rotation="-90 0 0">
-        <a-plane width="3" height="1.6" color="#000" opacity="0.8"></a-plane>
-        <a-text value="KINGDOM HEARTS - CHAVE\nOrigem: Kingdom Hearts\n\nA Kingdom Key possui grande poder magico e a\ncapacidade de abrir as 'Fechaduras' dos mundos.\n\nCuriosidade: Inicialmente ela nao escolheu Sora.\nEla seria do seu amigo Riku, mas o coracao\nde Sora se mostrou mais forte na hora." color="#ffd700" width="2.8" wrap-count="42" align="center" position="0 0 0.05"></a-text>
+        <a-plane width="3" height="1.6" material="shader: flat; color: #000000; transparent: true; opacity: 0.8; depthTest: false; depthWrite: false;"></a-plane>
+        <a-text material="shader: flat; color: #ffd700; depthTest: false; depthWrite: false;" value="KINGDOM HEARTS - CHAVE\nOrigem: Kingdom Hearts\n\nA Kingdom Key possui grande poder magico e a\ncapacidade de abrir as 'Fechaduras' dos mundos.\n\nCuriosidade: Inicialmente ela nao escolheu Sora.\nEla seria do seu amigo Riku, mas o coracao\nde Sora se mostrou mais forte na hora." color="#ffd700" width="2.8" wrap-count="42" align="center" position="0 0 0.05"></a-text>
       </a-entity>
     </a-marker>
 
@@ -225,8 +225,8 @@
     <a-marker id="marker-hollow" type="pattern" url="./pattern-ferrao.patt">
       <a-entity id="model-hollow" gltf-model="#ferraoHollow" rotation="-90 0 0" scale="0.001 0.001 0.001"></a-entity>
       <a-entity position="0 0 -1.5" rotation="-90 0 0">
-        <a-plane width="3" height="1.6" color="#000" opacity="0.8"></a-plane>
-        <a-text value="HOLLOW KNIGHT - FERRAO\nOrigem: Hollow Knight\n\nO Ferrao e a arma principal em Hallownest.\nO protagonista comeca com um Ferrao Antigo,\nque pode ser aprimorado na jornada.\n\nCuriosidade: A forma final exige Minerio Palido\ne uma decisao moral dificil com o Ferreiro." color="#ffd700" width="2.8" wrap-count="42" align="center" position="0 0 0.05"></a-text>
+        <a-plane width="3" height="1.6" material="shader: flat; color: #000000; transparent: true; opacity: 0.8; depthTest: false; depthWrite: false;"></a-plane>
+        <a-text material="shader: flat; color: #ffd700; depthTest: false; depthWrite: false;" value="HOLLOW KNIGHT - FERRAO\nOrigem: Hollow Knight\n\nO Ferrao e a arma principal em Hallownest.\nO protagonista comeca com um Ferrao Antigo,\nque pode ser aprimorado na jornada.\n\nCuriosidade: A forma final exige Minerio Palido\ne uma decisao moral dificil com o Ferreiro." color="#ffd700" width="2.8" wrap-count="42" align="center" position="0 0 0.05"></a-text>
       </a-entity>
     </a-marker>
 
@@ -234,19 +234,23 @@
     <a-marker id="marker-gow" type="pattern" url="./pattern-LaminasCaos.patt">
       <a-entity id="model-gow" gltf-model="#laminasCaos" rotation="-90 0 0" scale="0.5 0.5 0.5"></a-entity>
       <a-entity position="0 0 -1.5" rotation="-90 0 0">
-        <a-plane width="3" height="1.6" color="#000" opacity="0.8"></a-plane>
-        <a-text value="GOD OF WAR - LAMINAS DO CAOS\nOrigem: God of War (2005)\n\nForjadas por Ares no Tartaro, foram fundidas aos\nbracos do espartano Kratos como simbolo\nde sua servidao eterna.\n\nCuriosidade: O fogo das Laminas e um dos poucos\ncapazes de queimar no congelante Helheim." color="#ffd700" width="2.8" wrap-count="42" align="center" position="0 0 0.05"></a-text>
+        <a-plane width="3" height="1.6" material="shader: flat; color: #000000; transparent: true; opacity: 0.8; depthTest: false; depthWrite: false;"></a-plane>
+        <a-text material="shader: flat; color: #ffd700; depthTest: false; depthWrite: false;" value="GOD OF WAR - LAMINAS DO CAOS\nOrigem: God of War (2005)\n\nForjadas por Ares no Tartaro, foram fundidas aos\nbracos do espartano Kratos como simbolo\nde sua servidao eterna.\n\nCuriosidade: O fogo das Laminas e um dos poucos\ncapazes de queimar no congelante Helheim." color="#ffd700" width="2.8" wrap-count="42" align="center" position="0 0 0.05"></a-text>
       </a-entity>
     </a-marker>
 
-    <!-- Iluminacao moderada para evitar modelos lavados -->
-    <a-entity light="type: ambient; color: #ffffff; intensity: 3.0"></a-entity>
-    <a-entity light="type: directional; color: #ffffff; intensity: 1.5" position="0 10 0"></a-entity>
+    <!-- Iluminacao principal que não afeta drasticamente os materiais originais mas mantém cena clara -->
+    <a-entity light="type: ambient; color: #FFFFFF; intensity: 3.5"></a-entity>
+    
+    <!-- Luz direcional principal atuando como sol -->
+    <a-entity light="type: directional; color: #FFFFFF; intensity: 2.5" position="-1 2 1"></a-entity>
+    
+    <!-- Luz de preenchimento suave para não deixar sombras muito escuras -->
+    <a-entity light="type: hemisphere; color: #FFF; groundColor: #444; intensity: 2.0"></a-entity>
 
-    <!-- Luzes que acompanham a camera com intensidade mais baixa -->
     <a-entity camera>
-      <a-entity light="type: directional; color: #ffffff; intensity: 2.0" position="0 0 1"></a-entity>
-      <a-entity light="type: directional; color: #ffffff; intensity: 1.0" position="0 0 -1"></a-entity>
+      <!-- Luz acoplada à câmera para manter os modelos sempre com iluminação frontal básica, sem estourar o brilho -->
+      <a-entity light="type: point; color: #FFF; intensity: 1.5; distance: 50" position="0 0 0"></a-entity>
     </a-entity>
   </a-scene>
 
